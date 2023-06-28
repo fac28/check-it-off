@@ -4,10 +4,52 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" type="image/png" href="./images/favicon.ico?">
-  <link rel="stylesheet" href="styles/index.css">
-  <title>Document</title>
+  <link rel="stylesheet" href="../styles/main.css">
+  <title>To-do list</title>
 </head>
 <body>
+  <h1>Check it off</h1>
+  <div class="container">
+    <div class="input-container">
+      <input type="text" id="to-do" placeholder="Add a new task">
+      <input
+        type="date"
+        id="due-date"
+        value="2023-06-01"
+        min="2023-06-01"
+        max="2023-06-31">
+      <button id="add-btn">Add</button>
+    </div>
+    <div class="list-container">
+      <ul id="task-list" class="grid-container">
+        <li class="grid-item column-names">
+          <span class="checkbox-column"></span>
+          <span class="description-column">To-do</span>
+          <span class="due-date-column">Due Date</span>
+        </li>
+        <li class="grid-item">
+          <span class="checkbox-column">
+            <input type="checkbox" id="checkbox1">
+          </span>
+          <span class="description-column">
+            <label for="checkbox1">Buy groceries</label>
+          </span>
+          <span class="due-date-column">2023-07-01</span>
+        </li>
+        <li class="grid-item">
+          <span class="checkbox-column">
+            <input type="checkbox" id="checkbox2">
+          </span>
+          <span class="description-column">
+            <label for="checkbox1">Feed cat</label>
+          </span>
+          <span class="due-date-column">2023-07-01</span>
+        </li>
+        <!-- Other task items -->
+      </ul>
+    </div>
+  </div>
 
+  <script src="scripts/main.js"></script>
 </body>
 </html>
