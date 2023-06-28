@@ -1,0 +1,28 @@
+
+.list-container {
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* Three columns with automatic, flexible, and automatic width */
+  grid-gap: 10px; /* Gap between grid items */
+  max-width: fit-content; /* Fit container to content width */
+}
+
+.grid-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* Three columns within each grid item */
+  align-items: center; /* Center align grid items vertically */
+  justify-items: center;
+}
+
+.checkbox-column {
+  grid-column: 1;
+  margin: 0 10px;
+}
+
+.description-column {
+  grid-column: 2;
+}
+
+.due-date-column {
+  grid-column: 3;
+  margin: 0 10px;
+}
