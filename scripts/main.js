@@ -61,6 +61,7 @@ addButton.addEventListener('click', function() {
 );
 
 //filter items
+let FilterOn = false;
 let filterbut =document.querySelector("#filter-btn");
 let gridItemsList = document.querySelectorAll(".grid-item");
 let gridItemarray = Array.from(gridItemsList);
@@ -75,9 +76,28 @@ let completedarray = gridItemarray.filter(function(div) {
   
   return false;
 });
+if(FilterOn == true){
+  completedarray.forEach( function(e){
+    e.style.display = "grid";
+ });
+ completedarray = [];
+ filterbut.innerHTML ="Hide Completed"
+ console.log("ran1");
+ 
+}
+if(FilterOn == false){
 completedarray.forEach( function(e){
    e.style.display = "none";
+  
 });
+filterbut.innerHTML ="Show Completed"
+
+console.log("ran2");
+}
+
+
+FilterOn = !FilterOn;
+console.log(FilterOn);
 });
 
 
