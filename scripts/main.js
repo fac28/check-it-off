@@ -65,12 +65,21 @@ let filterbut =document.querySelector("#filter-btn");
 let gridItemsList = document.querySelectorAll(".grid-item");
 let gridItemarray = Array.from(gridItemsList);
 filterbut.addEventListener('click', function() {
-
+let completedarray = gridItemarray.filter(function(div) {
+  let divCheckboxes = div.querySelectorAll('input[type="checkbox"]');
+  for (let i = 0; i < divCheckboxes.length; i++) {
+    if (divCheckboxes[i].checked) {
+      return true;
+    }
+  }
   
-}
+  return false;
+});
+completedarray.forEach( function(e){
+   e.style.display = "none";
+});
+});
 
-// gridItemarray.forEach( function(e){
-//   e.style.display = "none";
-// });
+
 
 
