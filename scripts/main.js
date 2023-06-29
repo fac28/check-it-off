@@ -57,8 +57,7 @@ addButton.addEventListener('click', function() {
   // clear the text input and date input
   toDo.value = '';
   date.value = '';
-}
-);
+
 
 //filter items on click of filter button
 let FilterOn = false;
@@ -131,7 +130,8 @@ if (FilterOn == true) {
 
 
 
-
+}
+);
 
 
 
