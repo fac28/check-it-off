@@ -61,10 +61,16 @@ addButton.addEventListener('click', function() {
 );
 
 //filter items
+let filterbut =document.querySelector("#filter-btn");
 let gridItemsList = document.querySelectorAll(".grid-item");
 let gridItemarray = Array.from(gridItemsList);
-gridItemarray.forEach( function(e){
-  e.style.display = "none";
-});
+filterbut.addEventListener('click', function() {
+
+  
+}
+
+// gridItemarray.forEach( function(e){
+//   e.style.display = "none";
+// });
 
 
