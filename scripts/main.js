@@ -59,3 +59,8 @@ addButton.addEventListener('click', function() {
   date.value = '';
 }
 );
+
+//filter items
+let gridItemsList = document.querySelectorAll(".grid-item");
+let gridItemarray = Array.from(gridItemsList);
+console.log(gridItemarray.length);
