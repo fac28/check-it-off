@@ -5,6 +5,8 @@ export const taskData = [
 
 export const addButton = document.getElementById('add-btn');
 export const addForm = document.querySelector('#add-form');
+export const filterbut = document.querySelector("#filter-btn");
+
 export const toDo = document.getElementById('to-do');
 export const date = document.getElementById('due-date');
 
