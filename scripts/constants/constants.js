@@ -4,6 +4,7 @@ export const taskData = [
 ];
 
 export const addButton = document.getElementById('add-btn');
+export const addForm = document.querySelector('#add-form');
 export const toDo = document.getElementById('to-do');
 export const date = document.getElementById('due-date');
 

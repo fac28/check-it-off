@@ -13,9 +13,22 @@ constants.taskData.forEach((task, index) => {
   constants.taskList.appendChild(clone);
 });
 
-constants.addButton.addEventListener('click', function() {
-  handleSubmit();
+constants.addButton.addEventListener('click', function(event) {
+  event.preventDefault();
+
+  // Check if the form is valid
+  if (constants.addForm.checkValidity()) {
+    handleSubmit();
+  } else {
+    // If the form is invalid, show the validation error messages
+    constants.addForm.reportValidity();
+  }
 });
+
+// constants.addButton.addEventListener('click', function(event) {
+//   event.preventDefault();
+//   handleSubmit();
+// });
 
 //filter items on click of filter button
 let FilterOn = false;
@@ -23,7 +36,9 @@ let filterbut =document.querySelector("#filter-btn");
 let gridItemsList = document.querySelectorAll(".grid-item");
 
 let gridItemarray = Array.from(gridItemsList);
-filterbut.addEventListener('click', function() {
+filterbut.addEventListener('click', function(event) {
+  event.preventDefault()
+  
 let completedarray = gridItemarray.filter(function(div) {
   let divCheckboxes = div.querySelectorAll('input[type="checkbox"]');
   for (let i = 0; i < divCheckboxes.length; i++) {
@@ -90,8 +105,8 @@ if (FilterOn == true) {
 
 const handleSubmit = () =>{
 
-  preventDefault();
-  
+  if (constants.toDo.checkValidity() && constants.date.checkValidity()) {
+
   const toDoText = constants.toDo.value;
   const dateText = constants.date.value;
 
@@ -153,6 +168,13 @@ const handleSubmit = () =>{
   // clear the text input and date input
   constants.toDo.value = '';
   constants.date.value = '';
+  }
+  else {
+    // If the required fields are not filled in, show the validation error messages
+    constants.toDo.reportValidity();
+    constants.date.reportValidity();
+  }
+
 }
 
 constants.taskList.addEventListener('click', function(event) {
