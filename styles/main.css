@@ -2,6 +2,8 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  display: grid;
+  justify-items: center;
 }
 
 .input-container {
@@ -36,6 +38,14 @@ input, button {
   grid-template-columns: auto 1fr auto;
   align-items: center;
   justify-items: center;
+  padding: 2%;
+}
+
+.column-names{
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0 10px;
+
 }
 
 .checkbox-column {
@@ -50,4 +60,8 @@ input, button {
 .due-date-column {
   grid-column: 3;
   margin: 0 10px;
+}
+
+.delete-button {
+  grid-column: 4;
 }
