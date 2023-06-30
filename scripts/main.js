@@ -8,6 +8,8 @@ constants.taskData.forEach((task, index) => {
   li.querySelector('label').setAttribute('for', `checkbox${index}`);
   li.querySelector('.description-column').textContent = task.description;
   li.querySelector('.due-date-column').textContent = task.dueDate;
+  li.querySelector('.delete-button').dataset.index = index;
+
   constants.taskList.appendChild(clone);
 });
 
@@ -87,6 +89,9 @@ if (FilterOn == true) {
 
 
 const handleSubmit = () =>{
+
+  preventDefault();
+  
   const toDoText = constants.toDo.value;
   const dateText = constants.date.value;
 
@@ -120,12 +125,23 @@ const handleSubmit = () =>{
   newSpan3.classList.add('due-date-column');
   newSpan3.textContent = dateText;
 
+  const newSpan4 = document.createElement('span');
+  newSpan4.classList.add('delete-button');
+  const newButton = document.createElement('button');
+  newButton.classList.add('delete-button');
+  newButton.textContent = 'Delete';
+  newSpan4.appendChild(newButton);
+
+
+
+
   // append the new elements to the list item
   newSpan1.appendChild(newInput);
   newSpan2.appendChild(newLabel);
   newLi.appendChild(newSpan1);
   newLi.appendChild(newSpan2);
   newLi.appendChild(newSpan3);
+  newLi.appendChild(newSpan4);
 
   // append the new list item to the list
   list.appendChild(newLi);
@@ -138,3 +154,10 @@ const handleSubmit = () =>{
   constants.toDo.value = '';
   constants.date.value = '';
 }
+
+constants.taskList.addEventListener('click', function(event) {
+  if (event.target.classList.contains('delete-button')) {
+    const listItem = event.target.closest('.grid-item');
+    listItem.remove();
+  }
+});
