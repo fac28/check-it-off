@@ -1,28 +1,17 @@
-// target add button
-const addButton = document.getElementById('add-btn');
-const toDo = document.getElementById('to-do');
-const date = document.getElementById('due-date');
+import * as constants from "./constants/constants.js";
 
-const taskData = [
-  { description: 'Buy groceries', dueDate: '2023-07-01' },
-  { description: 'Feed cat', dueDate: '2023-07-01' }
-];
-
-const taskList = document.getElementById('task-list');
-const taskTemplate = document.getElementById('task-template');
-
-taskData.forEach((task, index) => {
-  const clone = document.importNode(taskTemplate.content, true);
+// populate page with dummy tasks
+constants.taskData.forEach((task, index) => {
+  const clone = document.importNode(constants.taskTemplate.content, true);
   const li = clone.querySelector('li');
   li.querySelector('input[type="checkbox"]').id = `checkbox${index}`;
   li.querySelector('label').setAttribute('for', `checkbox${index}`);
   li.querySelector('.description-column').textContent = task.description;
   li.querySelector('.due-date-column').textContent = task.dueDate;
-  taskList.appendChild(clone);
+  constants.taskList.appendChild(clone);
 });
 
-// on click, store the text input and date input
-addButton.addEventListener('click', function() {
+constants.addButton.addEventListener('click', function() {
   handleSubmit();
 });
 
@@ -70,6 +59,7 @@ console.log(FilterOn);
 //filters out items ticked when hide completed is on
 var checkboxes = document.querySelectorAll('div input[type="checkbox"]');
 let checkboxesArr  = Array.from(checkboxes);
+
 checkboxesArr.forEach(function(element){
   element.addEventListener('click', function() {
     let completedarray = gridItemarray.filter(function(div) {
@@ -97,8 +87,8 @@ if (FilterOn == true) {
 
 
 const handleSubmit = () =>{
-  const toDoText = toDo.value;
-  const dateText = date.value;
+  const toDoText = constants.toDo.value;
+  const dateText = constants.date.value;
 
   // add the new list item to the list
   const list = document.getElementById('task-list');
@@ -140,9 +130,11 @@ const handleSubmit = () =>{
   // append the new list item to the list
   list.appendChild(newLi);
 
-
+  // update the gridItemarray
+  gridItemsList = document.querySelectorAll(".grid-item");
+  gridItemarray = Array.from(gridItemsList);
 
   // clear the text input and date input
-  toDo.value = '';
-  date.value = '';
+  constants.toDo.value = '';
+  constants.date.value = '';
 }
