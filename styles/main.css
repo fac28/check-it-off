@@ -1,15 +1,40 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  max-width: fit-content;
+  margin: 0 auto;
+  padding-bottom: 1%;
+}
+
+input, button {
+  margin: 0 10px;
+  padding: 5px;
+  border-radius: 2px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
 
 .list-container {
-  display: grid;
-  grid-template-columns: auto 1fr auto; /* Three columns with automatic, flexible, and automatic width */
-  grid-gap: 10px; /* Gap between grid items */
-  max-width: fit-content; /* Fit container to content width */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: fit-content;
+  margin: 0 auto;
 }
 
 .grid-item {
   display: grid;
-  grid-template-columns: auto 1fr auto; /* Three columns within each grid item */
-  align-items: center; /* Center align grid items vertically */
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
   justify-items: center;
 }
 
