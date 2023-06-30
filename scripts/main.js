@@ -8,10 +8,6 @@ addButton.addEventListener('click', function() {
   const toDoText = toDo.value;
   const dateText = date.value;
 
-  // create a new list item
-  const newListItem = document.createElement('li');
-  newListItem.textContent = toDoText + ' ' + dateText;
-
   // add the new list item to the list
   const list = document.getElementById('task-list');
 
@@ -73,7 +69,7 @@ let completedarray = gridItemarray.filter(function(div) {
       return true;
     }
   }
-  
+
   return false;
 });
 if(FilterOn == true){
@@ -83,12 +79,12 @@ if(FilterOn == true){
  completedarray = [];
  filterbut.innerHTML ="Hide Completed"
  console.log("ran1");
- 
+
 }
 if(FilterOn == false){
 completedarray.forEach( function(e){
    e.style.display = "none";
-  
+
 });
 filterbut.innerHTML ="Show Completed"
 
@@ -112,14 +108,14 @@ checkboxesArr.forEach(function(element){
       return true;
     }
   }
-  
+
   return false;
 });
 
 if (FilterOn == true) {
   completedarray.forEach( function(e){
    e.style.display = "none";
-  
+
 });
 }
 
@@ -133,6 +129,20 @@ if (FilterOn == true) {
 }
 );
 
+const taskData = [
+  { description: 'Buy groceries', dueDate: '2023-07-01' },
+  { description: 'Feed cat', dueDate: '2023-07-01' }
+];
 
+const taskList = document.getElementById('task-list');
+const taskTemplate = document.getElementById('task-template');
 
-
+taskData.forEach((task, index) => {
+  const clone = document.importNode(taskTemplate.content, true);
+  const li = clone.querySelector('li');
+  li.querySelector('input[type="checkbox"]').id = `checkbox${index}`;
+  li.querySelector('label').setAttribute('for', `checkbox${index}`);
+  li.querySelector('.description-column').textContent = task.description;
+  li.querySelector('.due-date-column').textContent = task.dueDate;
+  taskList.appendChild(clone);
+});
