@@ -57,5 +57,82 @@ addButton.addEventListener('click', function() {
   // clear the text input and date input
   toDo.value = '';
   date.value = '';
+
+
+//filter items on click of filter button
+let FilterOn = false;
+let filterbut =document.querySelector("#filter-btn");
+let gridItemsList = document.querySelectorAll(".grid-item");
+
+let gridItemarray = Array.from(gridItemsList);
+filterbut.addEventListener('click', function() {
+let completedarray = gridItemarray.filter(function(div) {
+  let divCheckboxes = div.querySelectorAll('input[type="checkbox"]');
+  for (let i = 0; i < divCheckboxes.length; i++) {
+    if (divCheckboxes[i].checked) {
+      return true;
+    }
+  }
+  
+  return false;
+});
+if(FilterOn == true){
+  completedarray.forEach( function(e){
+    e.style.display = "grid";
+ });
+ completedarray = [];
+ filterbut.innerHTML ="Hide Completed"
+ console.log("ran1");
+ 
+}
+if(FilterOn == false){
+completedarray.forEach( function(e){
+   e.style.display = "none";
+  
+});
+filterbut.innerHTML ="Show Completed"
+
+console.log("ran2");
+}
+
+
+FilterOn = !FilterOn;
+console.log(FilterOn);
+});
+
+//filters out items ticked when hide completed is on
+var checkboxes = document.querySelectorAll('div input[type="checkbox"]');
+let checkboxesArr  = Array.from(checkboxes);
+checkboxesArr.forEach(function(element){
+  element.addEventListener('click', function() {
+    let completedarray = gridItemarray.filter(function(div) {
+  let divCheckboxes = div.querySelectorAll('input[type="checkbox"]');
+  for (let i = 0; i < divCheckboxes.length; i++) {
+    if (divCheckboxes[i].checked) {
+      return true;
+    }
+  }
+  
+  return false;
+});
+
+if (FilterOn == true) {
+  completedarray.forEach( function(e){
+   e.style.display = "none";
+  
+});
+}
+
+
+});
+
+});
+
+
+
 }
 );
+
+
+
+
