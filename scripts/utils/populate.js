@@ -12,5 +12,6 @@ export const populate = () => {
     li.querySelector(".delete-button").dataset.index = index;
 
     constants.taskList.appendChild(clone);
+    
   });
 }
