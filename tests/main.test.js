@@ -1,7 +1,6 @@
-import { addButton, toDo, date, taskList } from "./scripts/constants/constants.js";
-// import { handleSubmit } from "./scripts/utils/handleSubmit.js";
+import { addButton, toDo, date, taskList } from "../scripts/constants/constants.js";
 
-test("test submitting an item to the list", () => {
+test("Submitting a new task adds it to the list", () => {
   const expected = "Eat breakfast";
   toDo.value = expected;
   date.value = "2023-07-05";
