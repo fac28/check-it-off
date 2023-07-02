@@ -27,6 +27,7 @@ constants.taskList.addEventListener("click", function (event) {
   if (event.target.classList.contains("delete-button")) {
     const listItem = event.target.closest(".grid-item");
     listItem.remove();
+    // Todo: remove data from taskData
   }
 });
 

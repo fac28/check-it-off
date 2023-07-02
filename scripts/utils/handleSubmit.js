@@ -10,7 +10,6 @@ export const handleSubmit = () => {
       description: toDoText,
       dueDate: dateText,
       completed: false });
-    console.log(constants.taskData)
 
     // Create the new list item
     const newLi = document.createElement("li");
