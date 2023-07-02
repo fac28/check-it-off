@@ -1,6 +1,6 @@
 export const taskData = [
-  { description: 'Buy groceries', dueDate: '2023-07-01' },
-  { description: 'Feed cat', dueDate: '2023-07-01' }
+  { description: 'Buy groceries', dueDate: '2023-07-01', completed: false },
+  { description: 'Feed cat', dueDate: '2023-07-01', completed: false }
 ];
 
 export const addButton = document.getElementById('add-btn');

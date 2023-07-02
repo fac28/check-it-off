@@ -1,4 +1,4 @@
-import { addButton, toDo, date, taskList } from "../scripts/constants/constants.js";
+import { addButton, filterbut, toDo, date, taskList } from "../scripts/constants/constants.js";
 
 test("Submitting a new task adds it to the list", () => {
   const expected = "Eat breakfast";
@@ -10,6 +10,23 @@ test("Submitting a new task adds it to the list", () => {
 
   // expect last li item in task-list to have text "Eat breakfast"
   const actual = taskList.lastChild.querySelector(".description-column").textContent;
+
   equal(actual, expected, "last item in task-list should have the correct text");
 }
 )
+
+test("Checking an entry marks it as complete", () => {
+  // I think we should check if taskData is updated
+  
+  // click on the first checkbox
+  const firstCheckbox = taskList.querySelector("input[type=checkbox]");
+
+  var Event = new MouseEvent("click");
+  firstCheckbox.dispatchEvent(Event);
+
+  const actual = firstCheckbox.checked;
+  const expected = true;
+
+  equal(actual, expected, "first checkbox should be checked");
+
+});
