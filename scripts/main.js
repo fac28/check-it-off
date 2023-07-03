@@ -41,6 +41,8 @@ that fixes the bug that even if 'hide checked' is selected,
 when the user adds a new to-do and mark it as completed,
 it won't be hidden
 
+*/
+
 import { filterArray } from "./utils/filterArray.js";
 
 // Listen for the change event on the checkboxes
@@ -62,71 +64,71 @@ constants.filterbut.addEventListener("click", function () {
   filterArray(FilterOn, checkedArray);
 });
 
-*/
 
 
 
 
-let gridItemsList = document.querySelectorAll(".grid-item");
 
-let gridItemarray = Array.from(gridItemsList);
+// let gridItemsList = document.querySelectorAll(".grid-item");
 
-constants.filterbut.addEventListener("click", function () {
+// let gridItemarray = Array.from(gridItemsList);
 
-  let completedarray = gridItemarray.filter(function (div) {
-    let divCheckboxes = div.querySelectorAll('input[type="checkbox"]');
-    for (let i = 0; i < divCheckboxes.length; i++) {
-      if (divCheckboxes[i].checked) {
-        return true;
-      }
-    }
+// constants.filterbut.addEventListener("click", function () {
 
-    return false;
-  });
+//   let completedarray = gridItemarray.filter(function (div) {
+//     let divCheckboxes = div.querySelectorAll('input[type="checkbox"]');
+//     for (let i = 0; i < divCheckboxes.length; i++) {
+//       if (divCheckboxes[i].checked) {
+//         return true;
+//       }
+//     }
 
-  if (FilterOn == true) {
-    completedarray.forEach(function (e) {
-      e.style.display = "grid";
-    });
-    completedarray = [];
-    constants.filterbut.innerHTML = "Hide Completed";
-    console.log("ran1");
-  }
+//     return false;
+//   });
 
-  if (FilterOn == false) {
-    completedarray.forEach(function (e) {
-      e.style.display = "none";
-    });
-    constants.filterbut.innerHTML = "Show Completed";
+//   if (FilterOn == true) {
+//     completedarray.forEach(function (e) {
+//       e.style.display = "grid";
+//     });
+//     completedarray = [];
+//     constants.filterbut.innerHTML = "Hide Completed";
+//     console.log("ran1");
+//   }
 
-    console.log("ran2");
-  }
+//   if (FilterOn == false) {
+//     completedarray.forEach(function (e) {
+//       e.style.display = "none";
+//     });
+//     constants.filterbut.innerHTML = "Show Completed";
 
-  FilterOn = !FilterOn;
-  console.log(FilterOn);
-});
+//     console.log("ran2");
+//   }
 
-//filters out items ticked when hide completed is on
-var checkboxes = document.querySelectorAll('div input[type="checkbox"]');
-let checkboxesArr = Array.from(checkboxes);
+//   FilterOn = !FilterOn;
+//   console.log(FilterOn);
+// });
 
-checkboxesArr.forEach(function (element) {
-  element.addEventListener("click", function () {
-    let completedarray = gridItemarray.filter(function (div) {
-      let divCheckboxes = div.querySelectorAll('input[type="checkbox"]');
-      for (let i = 0; i < divCheckboxes.length; i++) {
-        if (divCheckboxes[i].checked) {
-          return true;
-        }
-      }
+// //filters out items ticked when hide completed is on
+// var checkboxes = document.querySelectorAll('div input[type="checkbox"]');
+// let checkboxesArr = Array.from(checkboxes);
 
-      return false;
-    });
+// checkboxesArr.forEach(function (element) {
+//   element.addEventListener("click", function () {
+//     let completedarray = gridItemarray.filter(function (div) {
+//       let divCheckboxes = div.querySelectorAll('input[type="checkbox"]');
+//       for (let i = 0; i < divCheckboxes.length; i++) {
+//         if (divCheckboxes[i].checked) {
+//           return true;
+//         }
+//       }
 
-    if (FilterOn == true) {
-      completedarray.forEach(function (e) {
-        e.style.display = "none";
-      });
-    }
-  });
-});
+//       return false;
+//     });
+
+//     if (FilterOn == true) {
+//       completedarray.forEach(function (e) {
+//         e.style.display = "none";
+//       });
+//     }
+//   });
+// });
