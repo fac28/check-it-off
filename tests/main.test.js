@@ -1,4 +1,4 @@
-import { addButton, filterbut, toDo, date, taskList } from "../scripts/constants/constants.js";
+import { addButton, toDo, date, taskList } from "../scripts/constants/constants.js";
 
 test("Submitting a new task adds it to the list", () => {
   const expected = "Eat breakfast";
@@ -12,6 +12,10 @@ test("Submitting a new task adds it to the list", () => {
   const actual = taskList.lastChild.querySelector(".description-column").textContent;
 
   equal(actual, expected, "last item in task-list should have the correct text");
+
+  const lastDeleteButton = taskList.lastChild.querySelector(".delete-button button");
+  lastDeleteButton.click();
+
 }
 )
 
@@ -44,7 +48,7 @@ test("Deleting an entry removes it from the list", () => {
   const lastDeleteButton = taskList.lastChild.querySelector(".delete-button button");
   lastDeleteButton.click();
 
-  const actual = taskList.lastChild.querySelector(".description-column").textContent;
+  const actual = taskList.lastElementChild.querySelector(".description-column").textContent;
 
   notEqual(actual, expected, "new task should be deleted");
 
