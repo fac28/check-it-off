@@ -5,13 +5,24 @@ export const populate = () => {
   constants.taskData.forEach((task, index) => {
     const clone = document.importNode(constants.taskTemplate.content, true);
     const li = clone.querySelector("li");
-    li.querySelector('input[type="checkbox"]').id = `checkbox${index}`;
+    const checkbox = li.querySelector('input[type="checkbox"]');
+
+    checkbox.id = `checkbox${index}`;
+    checkbox.tabIndex = index * 3 + 5;
+
     li.querySelector("label").setAttribute("for", `checkbox${index}`);
-    li.querySelector(".description-column").textContent = task.description;
-    li.querySelector(".due-date-column").textContent = task.dueDate;
-    li.querySelector(".delete-button").dataset.index = index;
+
+    const descriptionColumn = li.querySelector(".description-column");
+    descriptionColumn.textContent = task.description;
+    descriptionColumn.tabIndex = index * 3 + 6;
+
+    const dueDateColumn = li.querySelector(".due-date-column");
+    dueDateColumn.textContent = task.dueDate;
+    dueDateColumn.tabIndex = index * 3 + 7;
+
+    li.querySelector(".delete-button").tabIndex = index * 3 + 8;
 
     constants.taskList.appendChild(clone);
-    
+
   });
 }
