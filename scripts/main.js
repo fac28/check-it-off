@@ -28,7 +28,6 @@ constants.taskList.addEventListener("click", function (event) {
   if (event.target.classList.contains("delete-button")) {
     const listItem = event.target.closest(".grid-item");
     listItem.remove();
-    // Todo: remove data from taskData
   }
 });
 
@@ -42,8 +41,8 @@ constants.taskList.addEventListener("change", function () {
 
 // handle click on the filter button
 constants.filterbut.addEventListener("click", function () {
-  FilterOn = !FilterOn;
   constants.filterbut.innerHTML = FilterOn ? "Hide Completed" : "Show Completed";
+  FilterOn = !FilterOn;
 
   filterArray(FilterOn, updateCheckedArray());
 });
