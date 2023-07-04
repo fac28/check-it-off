@@ -5,12 +5,6 @@ export const handleSubmit = () => {
     const toDoText = constants.toDo.value;
     const dateText = constants.date.value;
 
-    // // append new task to taskData
-    // constants.taskData.push({
-    //   description: toDoText,
-    //   dueDate: dateText,
-    //   completed: false });
-
     // Create the new list item
     const newLi = document.createElement("li");
     newLi.classList.add("grid-item");
